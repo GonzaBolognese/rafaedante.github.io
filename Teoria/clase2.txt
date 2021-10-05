@@ -1,0 +1,31 @@
+QUE CAMBIOS DEBEMOS HACER PARA QUE EL SITIO FUNCIONE
+
+- Carga de el/los item/s
+
+- Eliminar los item/s
+
+- Sumar precio de los items
+
+- ver productos del carro 
+
+- modificacion de items
+
+Layout (version Beta)
+ - Rehacer el layout para que sea adaptable
+
+Barra de Menu
+
+ - QUITAR item1, item2, ....
+ - AGREGAR nuevo item (campo de texto)
+
+Barra Lateral
+ - Limpiar Lista
+ - Guardar Lista
+
+Busqueda
+ - Buscar items actualmente listado
+
+
+
+
+
