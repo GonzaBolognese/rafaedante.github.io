@@ -18,27 +18,28 @@
             <span class="mdl-layout__title">SuperLista</span>
             <div class="mdl-layout-spacer"></div>
             <div class="mdl-textfield mdl-js-textfield">
-              <input class="mdl-textfield__input" type="text" id="sample1">
-              <label class="mdl-textfield__label etiqueta" for="sample1">Text...</label>
+              <input class="mdl-textfield__input" type="text" id="inpAgregar">
+              <label class="mdl-textfield__label etiqueta" 
+              for="sample1">Item a agregar...</label>
             </div>
-            <button class="mdl-button mdl-js-button mdl-button--raised mdl-button--colored">
+            <button class="mdl-button mdl-js-button mdl-button--raised mdl-button--colored" id="btnAgregar">
               +
             </button>
             <div class="mdl-layout-spacer"></div>
-            <button class="mdl-button mdl-js-button mdl-button--raised mdl-button--colored">
-              Borrar
+            <button class="mdl-button mdl-js-button mdl-button--raised mdl-button--colored" id="btnDeshacer">
+              Deshacer
             </button>
             
             <div class="mdl-layout-spacer"></div>
             <div class="mdl-textfield mdl-js-textfield mdl-textfield--expandable
                   mdl-textfield--floating-label mdl-textfield--align-right">
                 <label class="mdl-button mdl-js-button mdl-button--icon"
-                    for="fixed-header-drawer-exp">
+                    for="inpBusqueda">
                     <i class="material-icons">search</i>
                 </label>
                 <div class="mdl-textfield__expandable-holder">
                     <input class="mdl-textfield__input" type="text" name="sample"
-                 id="fixed-header-drawer-exp">
+                 id="inpBusqueda">
                 </div>
             </div>
           </div>
@@ -46,43 +47,14 @@
         <div class="mdl-layout__drawer">
           <span class="mdl-layout__title">Menu</span>
           <nav class="mdl-navigation">
-            <a class="mdl-navigation__link" href="#">Limpiar lista</a>
+            <a class="mdl-navigation__link" href="#" id="lnkLimpiarLista">Limpiar lista</a>
             <a class="mdl-navigation__link" href="#">Guardar lista</a>
             <a class="mdl-navigation__link" href="#">Cargar lista</a>            
           </nav>
         </div>
-        <main class="mdl-layout__content">      
-
-           
-         <!--   <div style="display: grid; grid-template-columns: 25% 25% 25% 25%; justify-content: center; gap: 10px; padding: 10px; box-sizing: border-box;">          
-
-            <div class="mdl-card">
-                <div class="mdl-card__title">
-                  <h2 class="mdl-card__title-text">Item 1</h2>
-                </div>                
-                <div class="mdl-card__supporting-text">
-                  <div>Precio</div>
-                  <div>Cantidad</div>
-                </div>
-                <div class="mdl-card__actions">
-                  <a href="#">Borrar</a>
-                </div>
-            </div>
-            
-          </div>   -->
-
+        <main class="mdl-layout__content">
           <div id="galeria">
-
-            <div class="item">
-               <div class="titulo">Carne picada</div>
-               <div class="controles"></div>
-                <div class="borrar"></div>
-            </div>         
-
-
           </div>
-
-            
         </main>
       </div>
 
