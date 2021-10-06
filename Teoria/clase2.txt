@@ -13,14 +13,15 @@ QUE CAMBIOS DEBEMOS HACER PARA QUE EL SITIO FUNCIONE
 Layout (version Beta)
  - Rehacer el layout para que sea adaptable
 
-Barra de Menu
+Barra de Menu (Beta)
 
  - QUITAR item1, item2, ....
  - AGREGAR nuevo item (campo de texto)
 
-Barra Lateral
+Barra Lateral (Beta)
  - Limpiar Lista
  - Guardar Lista
+ - Cargar Lista
 
 Busqueda
  - Buscar items actualmente listado
