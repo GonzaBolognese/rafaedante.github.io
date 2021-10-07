@@ -1,0 +1,35 @@
+instalacion en GITHUB
+
+1) Preparar la instalacion, decimos que voy a instalar -> "COMMIT"
+
+2) Efectuar la instalacion, realizar el copiado de los archivos -> "PUSH"
+
+EQUIVALENCIA EN UNA AWP (instalacion del sitio)
+
+1) Indicar al browser que esta ante un sitio instalable (vemos hoy)
+
+2) Copiar los archivos estaticos a la cache (clase 6)
+
+
+Instalacion AWP
+
+1. Crear el manifest.json
+   1.1. Definir las propiedades generales (name, short_name, display, scope, start_url,
+	theme_color, background_color)
+   1.2. Crear los iconos (512x512 y 192x192)
+
+
+
+Que vimos? Porque?
+
+Hacer instalable la aplicacion / el sitio
+
+1. Indicar al browser que este sitio es un sitio instalable
+	- Indicar el nombre de la aplicacion
+	- Indicar el icono
+	- Definir la forma en la que se visualiza el sitio
+	- MANIFEST.JSON
+
+2. Programar la logica necesaria para efectuar la instalacion
+	- Crear el procesos de copiado de archivos a la cache
+	- SERVICEWORKER / CACHE 
