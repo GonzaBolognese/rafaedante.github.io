@@ -1,0 +1,54 @@
+Service Worker
+
+---------PARTE 1 (SIN CACHE)--------------
+
+Para que?
+
+- Para ejecutar procesos lentos o pesados en segundo plano
+- Para entender mejor el ServiceWorker (offline), ya que esta interfaz es la 'base' del SW
+
+
+Que?
+
+- API Worker, es una interfaz para implementar procesos en segundo plano, que se 
+  comunican con el programa principal a traves de "mensajes"
+
+Como?
+
+- Verificar si el navegador soporta la API Worker
+- Crear el Worker:
+	new Worker('ruta al archivo que se ejecutara en 2do plano')
+- Enviar un mensaje:
+	worker.postMessage(contenido)
+- Recibir el mensaje
+	worker.addEventListener('message', e => {.....})
+
+
+---------PARTE 2 (CON CACHE)--------------
+
+Para que?
+
+- Interceptar las PETICIONES HTTP SALIENTES y asi redirigirlas primero a la CACHE
+  para obtener comportamiento offline.
+
+Que?
+
+- API ServiceWorker, 'hija' de la API Worker
+
+Como?
+
+- DESARROLLAR EL ARCHIVO DEL SW
+
+- Ciclo de vida (y sus eventos)
+
+fetch -> se dispara al interceptar una peticion saliente (evento central)
+       > Interceptar las peticiones entrantes y buscar su respuesta en la cache PRIMERO
+
+activate -> se dispara para actualizar la version del serviceWorker
+	  > actualizacion de los archivos de la cache (incluyendo el SW)
+
+install -> se dispara al registrar por primera vez el serviceWorker
+  	 > hacer el copiado de los archivos a la cache.
+
+- CONECTAR ESE ARCHIVO CON EL PROGRAMA PRINCIPAL
+- Registracion del SW

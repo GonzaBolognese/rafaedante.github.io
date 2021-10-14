@@ -28,6 +28,12 @@ class="item">
 </div>
 </div>`
 
+// Workers
+let busquedaWorker = false
+
+if (window.Worker) {
+    busquedaWorker = new Worker('workers/busqueda.worker.js')
+}
 
 //Funciones
 function render(lista = [{titulo: '', cantidad: 0, precio: 0}]) {
@@ -37,24 +43,9 @@ function render(lista = [{titulo: '', cantidad: 0, precio: 0}]) {
     })
 }
 
-/* async function loadAPI(completado) {
-    const endpoint = 'https://5cfdb2b8ca949b00148d38ba.mockapi.io/items'
-
-    const res = await fetch(endpoint)
-    const json = await res.json()
-
-    datos = json
-
-    completado(datos)
-
-} */
-
 //Eventos
 // al cargar la pagina
-document.addEventListener('DOMContentLoaded', () => {
-    /* loadAPI(function() {
-        render(datos)
-    }) */
+document.addEventListener('DOMContentLoaded', () => {   
     rest.get(function(json) {
         datos = json
         render(datos)
@@ -89,16 +80,25 @@ btnDeshacer.addEventListener('click', () => {
 })
 
 //Al ingresar datos en el campo de busqueda
-inpBusqueda.addEventListener('input', e => {    
-    /* let vista = datos.filter((val) => {
-        if(val.titulo.includes(e.target.value)) {
-            return true
-        } else {
-            return false
-        }
-    }) */
-    let vista = datos.filter(val => val.titulo.includes(e.target.value))
-    render(vista)
+inpBusqueda.addEventListener('input', e => {  
+    if(!busquedaWorker) {
+        let vista = datos.filter(val => val.titulo.includes(e.target.value))
+        render(vista)
+    } else {
+        // Uso el Worker para filtrar los datos
+        console.log('Busqueda Worker registrado')
+
+        busquedaWorker.postMessage({
+            datos,
+            filtro: e.target.value
+        })
+
+        busquedaWorker.addEventListener('message', e => {
+            console.log(e)
+            render(e.data)
+        })
+    }
+    
 })
 
 //Al hacer click en limpiar lista
@@ -113,43 +113,3 @@ lnkLimpiarLista.addEventListener("click", () => {
 //Al hacer click en un item con la clase borrar
 
 //Objetos
-
-//const rest = (function() {
-
-    /*  ---------------FORMA 1--------------
-        async function loadAPI(completado) {
-        const endpoint = 'https://5cfdb2b8ca949b00148d38ba.mockapi.io/items'
-    
-        const res = await fetch(endpoint)
-        const json = await res.json()   
-        completado(json)
-    
-    }
-
-    return {
-        getAll: loadAPI
-    } ---------------FIN FORMA 1--------------*/
-/* 
-    const endpoint = 'https://5cfdb2b8ca949b00148d38ba.mockapi.io/items'
-    function crearPeticion(url, metodo='GET', cuerpo='') {
-        return async function(completado) {
-            let rest
-            if(metodo == 'GET') {
-                res = await fetch(url)
-            } else {
-                res = await fetch(url, {method: metodo, body:cuerpo})
-            }
-
-            let data = await res.json()
-            completado(data)
-        }
-    }
-    
-    return {
-        get: crearPeticion(endpoint),
-        post: (cuerpo, callback) => crearPeticion(endpoint, 'POST', cuerpo)(callback),
-        put: (id, cuerpo, callback) => crearPeticion(endpoint+'/'+id, 'PUT', cuerpo)(callback),
-        delete: (id, callback) => crearPeticion(endpoint+'/'+id, 'DELETE')(callback)
-    }
-
-})() */
